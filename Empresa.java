@@ -24,13 +24,23 @@ public class Empresa {
 		g1.setLogin("Maria");
 		g1.setSenha("2342");
 		
-		Supervisor supervisor = new Supervisor();
-		supervisor.salario = 5000.0;
+		Supervisor s = new Supervisor();
+        s.departamento = "Vendas";
+		s.dataDeEntrada = "23/04/2022";
+		s.estaNaEmpresa = true;
+		s.nome = "Lucas";		
+		s.rg = "123456";
+		s.salario = 5500.0;
+        s.calculaSalario();
+
+        s.setLogin("Lucas");
+		s.setSenha("1423");
+
 		
 		ControleDeBonificacao controle = new ControleDeBonificacao();
 		controle.calculaTotalDeBonus(v);
 		controle.calculaTotalDeBonus(g1);
-		controle.calculaTotalDeBonus(supervisor);
+		controle.calculaTotalDeBonus(s);
 			
 		System.out.println(v.getDataDeEntrada());
 		System.out.println(v.getDepartamento());
@@ -50,7 +60,15 @@ public class Empresa {
 		System.out.println(g1.getSalario());		
 		System.out.println(g1.bonifica());
 		
-		
+		System.out.println("//////////////////////////////");
+		s.autentica("Lucas", "1423");
+		System.out.println(s.getDataDeEntrada());
+		System.out.println(s.getDepartamento());
+		System.out.println(s.getNome());
+		System.out.println(s.getRg());
+		System.out.println(s.getSalario());		
+		System.out.println(s.bonifica());
+
 		System.out.println("Total de bonus: R$" + controle.getTotalDeBonus());
 	}
     
